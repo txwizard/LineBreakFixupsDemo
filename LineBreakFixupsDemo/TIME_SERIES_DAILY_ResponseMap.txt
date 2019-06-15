@@ -1,0 +1,16 @@
+﻿JSON	VS
+Meta Data	Meta_Data
+1. Information	Information
+2. Symbol	Symbol
+3. Last Refreshed	LastRefreshed
+4. Output Size	OutputSize
+5. Time Zone	TimeZone
+Time Series (Daily)	TimeSeriesDaily
+1. open	Open
+2. high	High
+3. low	Low
+4. close	Close
+5. adjusted close	AdjustedClose
+6. volume	Volume
+7. dividend amount	DividendAmount
+8. split coefficient	SplitCoefficient

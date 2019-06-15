@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LineBreakFixupsDemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SuccessfulOutcomeMessageColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="SuccessfulOutcomeMessageBackgroundColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Green</Value>
+    </Setting>
+    <Setting Name="DATA_DIRECTORY_NAME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">..\..\..\Test_Data</Value>
+    </Setting>
+    <Setting Name="JSON_INPUT_FILE_NAME_WINDOWS" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Raw_20190508_181920_Windows_LineBreaks.JSON</Value>
+    </Setting>
+    <Setting Name="JSON_INTERMEDIATE_FILE_NAME_WINDOWS_RAW" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Intermediate_Windows_LineBreaks_Raw.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_FINAL_FILE_NAME_WINDOWS_RAW" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_FINAL_Windows_LineBreaks_Raw.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_RAW" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Contents_Windows_LineBreaks_Raw.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_INPUT_FILE_NAME_UNIX" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Raw_20190508_181920_Unix_LineBreaks.JSON</Value>
+    </Setting>
+    <Setting Name="JSON_INTERMEDIATE_FILE_NAME_UNIX" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Intermediate_Unix_LineBreaks.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_FINAL_FILE_NAME_UNIX" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_FINAL_Unix_LineBreaks.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_CONTENTS_REPORT_FILE_NAME_UNIX" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Contents_Unix_LineBreaks.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_INTERMEDIATE_FILE_NAME_WINDOWS_TRANSFORMED" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Contents_Windows_LineBreaks_Transformed.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_FINAL_FILE_NAME_WINDOWS_TRANSFORMED" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_FINAL_Windows_LineBreaks_Transformed.TXT</Value>
+    </Setting>
+    <Setting Name="JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_TRANSFORMED" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">strResponse_Contents_Windows_LineBreaks_Transformed.TXT</Value>
+    </Setting>
+    <Setting Name="APP_SETTINGS_REPORT_FILENAME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Application_Settings_Report.TSV</Value>
+    </Setting>
+    <Setting Name="EMBEDDED_RESOURCES_REPORT_FILENAME" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Embedded_Resources_Report.TSV</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle ( "LineBreakFixupsDemo" )]
 [assembly: AssemblyDescription ( "" )]
 [assembly: AssemblyConfiguration ( "" )]
-[assembly: AssemblyCompany ( "HP Inc." )]
+[assembly: AssemblyCompany ( "David A. Gray" )]
 [assembly: AssemblyProduct ( "LineBreakFixupsDemo" )]
-[assembly: AssemblyCopyright ( "Copyright © HP Inc. 2019" )]
-[assembly: AssemblyTrademark ( "" )]
+[assembly: AssemblyCopyright ( "Copyright © 2019 David A. Gray. All rights reserved." )]
+[assembly: AssemblyTrademark ( "This program is distributed under a standard 3-clause BSD license." )]
 [assembly: AssemblyCulture ( "" )]
 
 // Setting ComVisible to false makes the types in this assembly not visible
