@@ -1,0 +1,339 @@
+LineBreakFixupsDemo, version 1.0.0.0
+Begin @ 2019/06/16 17:00:12.409 (2019/06/16 22:00:12.409 UTC)
+
+
+Test # 1 - Exercising class StringExtensions (Line ending transformation methods):
+
+        Input string test 1 of 7: Input String Length = 358, Input String:
+Test line 1 is followed by a Unix newline.
+Test line 2 is also followed by a Unix newline.
+Test line 3 is followed by a Windows line break.
+Test line 4 is followed by the unusual line LF/CR line break.
+Test line 6 is followed by a Unix newline.sh line break, CR.
+Test line 7 is followed by one last Unix newline.
+
+
+            Test Case 1 of 21: Output String Name = strFormattedForMac, Input Length = 358, Output Length = 356, Output Line Count = 7, Outcome = OK
+
+            Test Case 2 of 21: Output String Name = strFormattedForUnix, Input Length = 358, Output Length = 356, Output Line Count = 7, Outcome = OK
+
+            Test Case 3 of 21: Output String Name = strFormattedForWindows, Input Length = 358, Output Length = 363, Output Line Count = 7, Outcome = OK
+
+        Input string test 2 of 7: Input String Length = 368, Input String:
+Test line 1 is followed by Windows newline.
+Test line 2 is also followed by a Windows newline.
+Test line 3 is followed by a Windows line break.
+Test line 4 is followed by the unusual line LF/CR line break.
+Test line 6 is followed by a Unix newline.sh line break, CR.
+Test line 7 is followed by one last Windows newline.
+
+
+            Test Case 4 of 21: Output String Name = strFormattedForMac, Input Length = 368, Output Length = 363, Output Line Count = 7, Outcome = OK
+
+            Test Case 5 of 21: Output String Name = strFormattedForUnix, Input Length = 368, Output Length = 363, Output Line Count = 7, Outcome = OK
+
+            Test Case 6 of 21: Output String Name = strFormattedForWindows, Input Length = 368, Output Length = 370, Output Line Count = 7, Outcome = OK
+
+        Input string test 3 of 7: Input String Length = 155, Input String:
+Test line 1 is followed by a Windows newline.
+Test line 2 is also followed by a Windows newline.
+Test line 3 is followed by yet another Windows neline.
+
+
+            Test Case 7 of 21: Output String Name = strFormattedForMac, Input Length = 155, Output Length = 152, Output Line Count = 3, Outcome = OK
+
+            Test Case 8 of 21: Output String Name = strFormattedForUnix, Input Length = 155, Output Length = 152, Output Line Count = 3, Outcome = OK
+
+            Test Case 9 of 21: Output String Name = strFormattedForWindows, Input Length = 155, Output Length = 155, Output Line Count = 3, Outcome = OK
+
+        Input string test 4 of 7: Input String Length = 143, Input String:
+Test line 1 is followed by a Unix newline.
+Test line 2 is also followed by a Unix newline.
+Test line 3 is followed by yet another Unix neline.
+
+
+            Test Case 10 of 21: Output String Name = strFormattedForMac, Input Length = 143, Output Length = 143, Output Line Count = 3, Outcome = OK
+
+            Test Case 11 of 21: Output String Name = strFormattedForUnix, Input Length = 143, Output Length = 143, Output Line Count = 3, Outcome = OK
+
+            Test Case 12 of 21: Output String Name = strFormattedForWindows, Input Length = 143, Output Length = 146, Output Line Count = 3, Outcome = OK
+
+        Input string test 5 of 7: Input String Length = 161, Input String:
+Test line 1 is followed by a Unix newline.
+Test line 2 is followed by 2 Unix newlines.
+
+Test line 4 is followed by one Unix newline.
+Test line 5 is unterminated.
+
+            Test Case 13 of 21: Output String Name = strFormattedForMac, Input Length = 161, Output Length = 161, Output Line Count = 4, Outcome = OK
+
+            Test Case 14 of 21: Output String Name = strFormattedForUnix, Input Length = 161, Output Length = 161, Output Line Count = 4, Outcome = OK
+
+            Test Case 15 of 21: Output String Name = strFormattedForWindows, Input Length = 161, Output Length = 165, Output Line Count = 4, Outcome = OK
+
+        Input string test 6 of 7: Input String Length = 188, Input String:
+Test line 5 is unterminated.ne Old Macintosh newline.
+
+            Test Case 16 of 21: Output String Name = strFormattedForMac, Input Length = 188, Output Length = 188, Output Line Count = 4, Outcome = OK
+
+            Test Case 17 of 21: Output String Name = strFormattedForUnix, Input Length = 188, Output Length = 188, Output Line Count = 4, Outcome = OK
+
+            Test Case 18 of 21: Output String Name = strFormattedForWindows, Input Length = 188, Output Length = 192, Output Line Count = 4, Outcome = OK
+
+        Input string test 7 of 7: Input String Length = 174, Input String:
+Test line 1 is followed by a Windows newline.
+Test line 2 is followed by 2 Windows newlines.
+
+Test line 4 is followed by one Windows newline.
+Test line 5 is unterminated.
+
+            Test Case 19 of 21: Output String Name = strFormattedForMac, Input Length = 174, Output Length = 170, Output Line Count = 4, Outcome = OK
+
+            Test Case 20 of 21: Output String Name = strFormattedForUnix, Input Length = 174, Output Length = 170, Output Line Count = 4, Outcome = OK
+
+            Test Case 21 of 21: Output String Name = strFormattedForWindows, Input Length = 174, Output Length = 174, Output Line Count = 4, Outcome = OK
+
+
+    Test summary: Successful Outcome Count   = 21
+                  Unsuccessful Outcome Count = 0
+
+    A-OK!
+
+Test # 1 Done - Final Status Code = 0
+
+Test # 2 - Exercising class Program (method ListAppSettings, which sorts and lists the application settings):
+
+    Enumerate the 16 settings as returned from the collection:
+
+         1 of 16: Name = JSON_FINAL_FILE_NAME_WINDOWS_TRANSFORMED, DefaultValue = strResponse_FINAL_Windows_LineBreaks_Transformed.TXT
+         2 of 16: Name = EMBEDDED_RESOURCES_REPORT_FILENAME, DefaultValue = Embedded_Resources_Report.TSV
+         3 of 16: Name = JSON_INPUT_FILE_NAME_UNIX, DefaultValue = strResponse_Raw_20190508_181920_Unix_LineBreaks.JSON
+         4 of 16: Name = JSON_INTERMEDIATE_FILE_NAME_UNIX, DefaultValue = strResponse_Intermediate_Unix_LineBreaks.TXT
+         5 of 16: Name = APP_SETTINGS_REPORT_FILENAME, DefaultValue = Application_Settings_Report.TSV
+         6 of 16: Name = JSON_INTERMEDIATE_FILE_NAME_WINDOWS_TRANSFORMED, DefaultValue = strResponse_Intermediate_Windows_LineBreaks_Transformed.TXT
+         7 of 16: Name = JSON_INPUT_FILE_NAME_WINDOWS, DefaultValue = strResponse_Raw_20190508_181920_Windows_LineBreaks.JSON
+         8 of 16: Name = SuccessfulOutcomeMessageBackgroundColor, DefaultValue = Green
+         9 of 16: Name = DATA_DIRECTORY_NAME, DefaultValue = ..\..\..\Test_Data
+        10 of 16: Name = SuccessfulOutcomeMessageColor, DefaultValue = White
+        11 of 16: Name = JSON_FINAL_FILE_NAME_WINDOWS_RAW, DefaultValue = strResponse_FINAL_Windows_LineBreaks_Raw.TXT
+        12 of 16: Name = JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_TRANSFORMED, DefaultValue = strResponse_Contents_Windows_LineBreaks_Transformed.TXT
+        13 of 16: Name = JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_RAW, DefaultValue = strResponse_Contents_Windows_LineBreaks_Raw.TXT
+        14 of 16: Name = JSON_FINAL_FILE_NAME_UNIX, DefaultValue = strResponse_FINAL_Unix_LineBreaks.TXT
+        15 of 16: Name = JSON_INTERMEDIATE_FILE_NAME_WINDOWS_RAW, DefaultValue = strResponse_Intermediate_Windows_LineBreaks_Raw.TXT
+        16 of 16: Name = JSON_CONTENTS_REPORT_FILE_NAME_UNIX, DefaultValue = strResponse_Contents_Unix_LineBreaks.TXT
+
+    Enumerate the 16 sorted settings:
+
+         1 of 16: Name = APP_SETTINGS_REPORT_FILENAME, Type = System.String, DefaultValue = Application_Settings_Report.TSV
+         2 of 16: Name = DATA_DIRECTORY_NAME, Type = System.String, DefaultValue = ..\..\..\Test_Data
+         3 of 16: Name = EMBEDDED_RESOURCES_REPORT_FILENAME, Type = System.String, DefaultValue = Embedded_Resources_Report.TSV
+         4 of 16: Name = JSON_CONTENTS_REPORT_FILE_NAME_UNIX, Type = System.String, DefaultValue = strResponse_Contents_Unix_LineBreaks.TXT
+         5 of 16: Name = JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_RAW, Type = System.String, DefaultValue = strResponse_Contents_Windows_LineBreaks_Raw.TXT
+         6 of 16: Name = JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_TRANSFORMED, Type = System.String, DefaultValue = strResponse_Contents_Windows_LineBreaks_Transformed.TXT
+         7 of 16: Name = JSON_FINAL_FILE_NAME_UNIX, Type = System.String, DefaultValue = strResponse_FINAL_Unix_LineBreaks.TXT
+         8 of 16: Name = JSON_FINAL_FILE_NAME_WINDOWS_RAW, Type = System.String, DefaultValue = strResponse_FINAL_Windows_LineBreaks_Raw.TXT
+         9 of 16: Name = JSON_FINAL_FILE_NAME_WINDOWS_TRANSFORMED, Type = System.String, DefaultValue = strResponse_FINAL_Windows_LineBreaks_Transformed.TXT
+        10 of 16: Name = JSON_INPUT_FILE_NAME_UNIX, Type = System.String, DefaultValue = strResponse_Raw_20190508_181920_Unix_LineBreaks.JSON
+        11 of 16: Name = JSON_INPUT_FILE_NAME_WINDOWS, Type = System.String, DefaultValue = strResponse_Raw_20190508_181920_Windows_LineBreaks.JSON
+        12 of 16: Name = JSON_INTERMEDIATE_FILE_NAME_UNIX, Type = System.String, DefaultValue = strResponse_Intermediate_Unix_LineBreaks.TXT
+        13 of 16: Name = JSON_INTERMEDIATE_FILE_NAME_WINDOWS_RAW, Type = System.String, DefaultValue = strResponse_Intermediate_Windows_LineBreaks_Raw.TXT
+        14 of 16: Name = JSON_INTERMEDIATE_FILE_NAME_WINDOWS_TRANSFORMED, Type = System.String, DefaultValue = strResponse_Intermediate_Windows_LineBreaks_Transformed.TXT
+        15 of 16: Name = SuccessfulOutcomeMessageBackgroundColor, Type = System.String, DefaultValue = Green
+        16 of 16: Name = SuccessfulOutcomeMessageColor, Type = System.String, DefaultValue = White
+
+    Application Settings Report Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\Application_Settings_Report.TSV
+                                Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                                Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                                Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                                Size in bytes = 1,503
+                                Attributes    = 32 (Archive)
+
+Test # 2 Done - Final Status Code = 0
+
+Test # 3 - Exercising class Program (method ListEmbeddedResources, which sorts and lists embedded string resources):
+
+Assembly Name  = LineBreakFixupsDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+
+    Location   = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\LineBreakFixupsDemo\bin\Release\LineBreakFixupsDemo.exe
+    # of Items = 2
+
+        Embedded Resource # 1: LineBreakFixupsDemo.Properties.Resources.resources
+        Embedded Resource # 2: LineBreakFixupsDemo.TIME_SERIES_DAILY_ResponseMap.txt
+
+    End of list
+
+    String #  1: Name = ERRMSG_CMDARG_IS_INVALID                 , Value = ABORTING: Command line argument {0} is invalid.
+    String #  2: Name = ERRMSG_CORRUPTED_EMBBEDDED_RESOURCE_LABEL, Value = The label row of internal resource {0} is invalid.{3}    Expected value = {1}{3}    Actual value   = {2}
+    String #  3: Name = ERRMSG_CORRUPTED_EMBEDDED_RESOURCE_DETAIL, Value = Detail record {0} of internal resource {1} is invalid.{5}    Expected field count = {2}{5}    Actual field count   = {3}{5}    Actual record        = {4}
+    String #  4: Name = FILE_LABEL_APP_SETTINGS_LIST             , Value =     Application Settings Report
+    String #  5: Name = FILE_LABEL_CONTENT_REPORT                , Value =     Detailed Report File:
+    String #  6: Name = FILE_LABEL_EMBEDD3ED_RESOUCES_REPORT     , Value =     Embedded Resources Report
+    String #  7: Name = FILE_LABEL_FINAL                         , Value =     Output File:
+    String #  8: Name = FILE_LABEL_INPUT                         , Value =     Input File:
+    String #  9: Name = FILE_LABEL_INTERMEDIATE                  , Value =     Intermediate File:
+    String # 10: Name = JSON_DESERIALIZER_TOSTRING_TEMPLATE      , Value = TestReportLabel        = {0}{6}RESTResponseFileName   = {1}{6}ConvertLineEndings     = {2}{6}IntermediateFileName   = {3}{6}FinalOutputFileName    = {4}{6}ResponseObjectFileName = {5}
+    String # 11: Name = LBL_APP_SETTINGS_LIST                    , Value = Item\tName\tType\tDefault
+    String # 12: Name = MSG_APP_SETTINGS_DETAIL_TEMPLATE         , Value =         {0,2} of {1,2}: Name = {2}, DefaultValue = {3}
+    String # 13: Name = MSG_APP_SETTINGS_SORTED_ITEM             , Value =         {0,2} of {1,2}: Name = {2}, Type = {3}, DefaultValue = {4}
+    String # 14: Name = MSG_BEGIN                                , Value = {2}Test # {0} - Exercising class {1}:{2}
+    String # 15: Name = MSG_DONE                                 , Value = {2}Test # {0} Done - Final Status Code = {1}
+    String # 16: Name = MSG_RESPONSE_DETAILS_LABELS              , Value = Item\tActivity_Date\tOpen\tHigh\tLow\tClose\tAdjustedClose\tVolume\tDividendAmount\tSplitCoefficient
+    String # 17: Name = MSG_RESPONSE_METADATA                    , Value =     Metadata from response: Information   = {0}{6}                            Symbol        = {1}{6}                            LastRefreshed = {2}{6}                            OutputSize    = {3}{6}                            TimeZone      = {4}{6}                            Detail Count  = {5}
+    String # 18: Name = MSG_SETTINGS_ENUMERATION_HEADING         , Value =     Enumerate the {0} settings as returned from the collection:{1}
+    String # 19: Name = MSG_SORTED_APP_SETTINGS_LIST_HEADING     , Value = {1}    Enumerate the {0} sorted settings:{1}
+    String # 20: Name = MSG_TEST_2_PROLOGUE                      , Value = Program (method ListAppSettings, which sorts and lists the application settings)
+    String # 21: Name = MSG_TEST_3_PROLOGUE                      , Value = Program (method ListEmbeddedResources, which sorts and lists embedded string resources)
+    String # 22: Name = MSG_TEST_4_PROLOGUE                      , Value = JSON Fixups from Transformed Windows Input
+    String # 23: Name = MSG_TEST_5_PROLOGUE                      , Value = JSON Fixups from Raw Windows Input
+    String # 24: Name = MSG_TEST_6_PROLOGUE                      , Value = JSON Fixups from Raw Unix Input
+
+    Embedded Resources Report Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\Embedded_Resources_Report.TSV
+                              Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                              Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                              Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                              Size in bytes = 4,806
+                              Attributes    = 32 (Archive)
+
+Test # 3 Done - Final Status Code = 0
+
+Test # 4 - Exercising class JSON Fixups from Transformed Windows Input:
+
+    Input File: Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Raw_20190508_181920_Windows_LineBreaks.JSON
+                Modified Date = 2019/06/04 14:05:01 (2019/06/04 19:05:01 UTC)
+                Date Created  = 2019/06/05 23:24:10 (2019/06/06 04:24:10 UTC)
+                Date Accessed = 2019/06/05 23:24:10 (2019/06/06 04:24:10 UTC)
+                Size in bytes = 35,814
+                Attributes    = 1 (ReadOnly)
+
+    Intermediate File:      Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Intermediate_Windows_LineBreaks_Transformed.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 32,082
+                            Attributes    = 32 (Archive)
+
+    Output File:            Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_FINAL_Windows_LineBreaks_Transformed.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 34,985
+                            Attributes    = 32 (Archive)
+
+    Metadata from response: Information   = Daily Time Series with Splits and Dividend Events
+                            Symbol        = BA
+                            LastRefreshed = 2019-05-08 16:00:44
+                            OutputSize    = Compact
+                            TimeZone      = US/Eastern
+                            Detail Count  = 100
+
+    Detailed Report File:   Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Contents_Windows_LineBreaks_Transformed.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 6,496
+                            Attributes    = 32 (Archive)
+
+Test # 4 Done - Final Status Code = 0
+
+Test # 5 - Exercising class JSON Fixups from Raw Windows Input:
+
+    Input File: Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Raw_20190508_181920_Windows_LineBreaks.JSON
+                Modified Date = 2019/06/04 14:05:01 (2019/06/04 19:05:01 UTC)
+                Date Created  = 2019/06/05 23:24:10 (2019/06/06 04:24:10 UTC)
+                Date Accessed = 2019/06/05 23:24:10 (2019/06/06 04:24:10 UTC)
+                Size in bytes = 35,814
+                Attributes    = 1 (ReadOnly)
+
+    Intermediate File:      Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Intermediate_Windows_LineBreaks_Raw.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 33,092
+                            Attributes    = 32 (Archive)
+
+    Output File:            Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_FINAL_Windows_LineBreaks_Raw.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 33,095
+                            Attributes    = 32 (Archive)
+
+An Newtonsoft.Json.JsonSerializationException exception was caught in routine System.Object EnsureType(Newtonsoft.Json.JsonReader, System.Object, System.Globalization.CultureInfo, Newtonsoft.Json.Serialization.JsonContract, System.Type):
+               Message          = Error converting value "2019-05-08" to type 'LineBreakFixupsDemo.Time_Series_Daily'. Path 'Time_Series_Daily[0]', line 10, position 20.
+Exception Method = System.Object EnsureType(Newtonsoft.Json.JsonReader, System.Object, System.Globalization.CultureInfo, Newtonsoft.Json.Serialization.JsonContract, System.Type)
+Exception Source = Newtonsoft.Json
+
+Stack Trace Begin:
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at LineBreakFixupsDemo.Program.PerformJSONTransofmration(Int32 pintTestNumber, Boolean pfConvertLineEndings, String pstrTestReportLabel, String pstrRESTResponseFileName, String pstrIntermediateFileName, String pstrFinalOutputFileName, String pstrResponseObjectFileName) in F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\LineBreakFixupsDemo\Program.cs:line 439
+   at LineBreakFixupsDemo.Program.Main(String[] args) in F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\LineBreakFixupsDemo\Program.cs:line 146
+End of Stack Trace
+
+Inner Exception:
+               Message          = Could not cast or convert from System.String to LineBreakFixupsDemo.Time_Series_Daily.
+Exception Method = System.Object EnsureTypeAssignable(System.Object, System.Type, System.Type)
+Exception Source = Newtonsoft.Json
+
+Stack Trace Begin:
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+End of Stack Trace
+
+There are no further exceptions to report.
+
+
+Test # 5 - Exercising class JSON Fixups from Raw Unix Input:
+
+    Input File: Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Raw_20190508_181920_Unix_LineBreaks.JSON
+                Modified Date = 2019/05/08 18:19:20 (2019/05/08 23:19:20 UTC)
+                Date Created  = 2019/06/05 23:28:36 (2019/06/06 04:28:36 UTC)
+                Date Accessed = 2019/06/05 23:28:36 (2019/06/06 04:28:36 UTC)
+                Size in bytes = 34,804
+                Attributes    = 1 (ReadOnly)
+
+    Intermediate File:      Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Intermediate_Unix_LineBreaks.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 32,082
+                            Attributes    = 32 (Archive)
+
+    Output File:            Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_FINAL_Unix_LineBreaks.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 34,985
+                            Attributes    = 32 (Archive)
+
+    Metadata from response: Information   = Daily Time Series with Splits and Dividend Events
+                            Symbol        = BA
+                            LastRefreshed = 2019-05-08 16:00:44
+                            OutputSize    = Compact
+                            TimeZone      = US/Eastern
+                            Detail Count  = 100
+
+    Detailed Report File:   Absolute Name = F:\Source_Code\Visual_Studio\Projects\_Laboratory\LineBreakFixupsDemo\Test_Data\strResponse_Contents_Unix_LineBreaks.TXT
+                            Modified Date = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Created  = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Date Accessed = 2019/06/16 17:00:12 (2019/06/16 22:00:12 UTC)
+                            Size in bytes = 6,496
+                            Attributes    = 32 (Archive)
+
+Test # 5 Done - Final Status Code = 0
+
+LineBreakFixupsDemo End - 2019/06/16 17:00:12.763 (2019/06/16 22:00:12.763 UTC)
+Elapsed time: 00:00:00.3542950
+Please press the ENTER (Return) key to exit the program.

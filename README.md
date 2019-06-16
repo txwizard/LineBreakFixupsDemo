@@ -22,7 +22,7 @@ While I know that programs exist that can replace Unix line breaks with Windows
 line breaks, and vice versa, I decided to create one of my own, in the spirit of
 my very fast AnyCSV delimited text parser.
 
-## Using the Code
+## Preparing Your Local Repository
 
 To work around the line break conversion issue described above, and provide a
 ready-made set of binaries to run, the GitHub repository contains two ZIP
@@ -104,3 +104,43 @@ you created the repository clone.
 
 Alternatively, you can execute the command line described above in the command prompt window
 that you opened to use the Git command line interface.
+
+## Using the code
+
+To see everything at once, execute the program as described above from a command
+prompt or the Run dialog box of the Start Menu, or double-click its icon in the
+File Explorer. Since it knows how to work out the location of its input files
+and the directory in which to create its output files, the location of the
+repository is irrelevant, so long as it stays intact.
+
+`LineBreakFixupDemo_Complete_Report_20190616_171328.TXT` is the output of such a
+complete run, saved by selecting everything in the window that opens when it
+starts, and closes when you press the __Return__ key, copying it into the
+Windows clipboard, and pasting it into a new text file.
+
+You can also execute each of its four exercises independently by appending one
+of the four parameters listed in the Name column of the table below.
+
+|Name               |Description                                                                                                                 |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------|
+|LineBreaks         |Exercising class StringExtensions (Line ending transformation methods)                                                      |
+|AppSettingsList    |Exercising class Program (method ListAppSettings, which sorts and lists the application settings)                           |
+|StringResourceList |Exercising class Program (method ListEmbeddedResources, which sorts and lists embedded string resources)                    |
+|TransformJSONString|Exercising class JSON Fixups from files that contain transformed and raw Windows line breaks, and Unix line breaks (3 tests)|
+
+## Contents of the Test_Data Directory
+
+Immediately after `Test_Data.zip` is extracted, the `Test_Data` directory contains
+the files listed in the following table.
+
+|File Name                                              |File Description                                                                                                                                                                                                                         |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|Reference_Lists.xlsx                                   |This Excel workbook contains two sheets, SelectedTest Enumeration and NuGet Packages and Dependencies, the names of which are self-descriptive.                                                                                          |
+|Resources_and_Settings_Reports.xlsx                    |This Excel workbook contains several sheets, of which the most interesting are Application Settings Report, an import of the AppSettingsList output file, and Embedded Resources Report, an import of the StringResourceList output file.|
+|strResponse_Raw_20190508_181920_Unix_LineBreaks.JSON   |This text file contains the raw JSON response returned by a REST API query that is the input to the transformation tests. This is one of the two input files consumed by the TransformJSONString exercises.                              |
+|strResponse_Raw_20190508_181920_Windows_LineBreaks.JSON|This text file contains the same JSON response, with its Unix line breaks replaced with Windows line breaks. This is one of the two input files consumed by the TransformJSONString exercises.                                           |
+
+At least three forthcoming CodeProject articles will refer to parts of this
+repository and the NuGet packages upon which it depends quite heavily. The first
+and third articles will refer to both Excel workbooks, while the third article
+will refer to Resources_and_Settings_Reports.xlsx and the two JSON files.
