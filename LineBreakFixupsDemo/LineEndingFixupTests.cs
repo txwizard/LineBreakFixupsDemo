@@ -54,6 +54,7 @@
     Date       Version By  Synopsis
     ---------- ------- --- -----------------------------------------------------
 	2019/06/10 1.0     DAG Class imported from DLLServices2TestStand
+    2019/06/16 1.0     DAG Improve the test description.
     ============================================================================
 */
 
@@ -98,7 +99,11 @@ namespace LineBreakFixupsDemo
         {
             const int SCENARIO_COUNT = 3;
 
-            Utl.BeginTest ( nameof ( StringExtensions ) , ref pintTestNumber );
+            Utl.BeginTest (
+                string.Concat (
+                    nameof ( StringExtensions ) ,
+                    @" (Line ending transformation methods)" ) ,
+                ref pintTestNumber );
 
             int intInputCase = ListInfo.LIST_IS_EMPTY;
             int intOverallCase = ListInfo.LIST_IS_EMPTY;

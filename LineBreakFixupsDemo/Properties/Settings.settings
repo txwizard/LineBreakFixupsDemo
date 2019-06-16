@@ -36,7 +36,7 @@
       <Value Profile="(Default)">strResponse_Contents_Unix_LineBreaks.TXT</Value>
     </Setting>
     <Setting Name="JSON_INTERMEDIATE_FILE_NAME_WINDOWS_TRANSFORMED" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">strResponse_Contents_Windows_LineBreaks_Transformed.TXT</Value>
+      <Value Profile="(Default)">strResponse_Intermediate_Windows_LineBreaks_Transformed.TXT</Value>
     </Setting>
     <Setting Name="JSON_FINAL_FILE_NAME_WINDOWS_TRANSFORMED" Type="System.String" Scope="Application">
       <Value Profile="(Default)">strResponse_FINAL_Windows_LineBreaks_Transformed.TXT</Value>

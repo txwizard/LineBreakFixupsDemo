@@ -54,7 +54,7 @@
 
     Date       Version By  Synopsis
     ---------- ------- --- -----------------------------------------------------
-	2019/06/15 1.0     DAG Class created from Visual Studio template
+	2019/06/16 1.0     DAG Class created from Visual Studio template
     ============================================================================
 */
 
@@ -74,6 +74,14 @@ namespace LineBreakFixupsDemo
         const bool CONVERT_TO_UNIX_LINE_BREAKS = true;
         const bool PRESERVE_EXISTING_LINE_BREAKS = false;
 
+        enum SelectedTest
+        {
+            LineBreaks ,
+            AppSettingsList ,
+            StringResourceList ,
+            TransformJSONString ,
+        }   // enum SelectedTest
+
         static ConsoleAppStateManager s_smThisApp = ConsoleAppStateManager.GetTheSingleInstance ( );
 
         static JSONDeserializationUseCase [ ] s_aDeserializationUseCases =
@@ -84,6 +92,18 @@ namespace LineBreakFixupsDemo
         };  // static JSONDeserializationUseCase [ ] s_aDeserializationUseCases
 
 
+        /// <summary>
+        /// This routine is the entry point of the entry assembly.
+        /// </summary>
+        /// <param name="args">
+        /// When specified, the args array contains a single entry, which must
+        /// match the string representation of a member of the SelectedTest
+        /// enumeration. When the string corresponds to the string
+        /// representation of a SelectedTest member, the corresponding test is
+        /// performed. When no argument is given, all tests are performed. When
+        /// the specified argument is invalid, the error is reported, and
+        /// nothing else happens.
+        /// </param>
         static void Main ( string [ ] args )
         {
             int intTestNumber = ListInfo.LIST_IS_EMPTY;
@@ -99,32 +119,57 @@ namespace LineBreakFixupsDemo
 
             try
             {
-                s_smThisApp.BaseStateManager.AppReturnCode = LineEndingFixupTests.Exercise ( ref intTestNumber );
+                if ( RunThisTest ( SelectedTest.LineBreaks , args ) )
+                {
+                    s_smThisApp.BaseStateManager.AppReturnCode = LineEndingFixupTests.Exercise ( ref intTestNumber );
+                }   // if ( RunThisTest ( SelectedTest.LineBreaks , args ) )
 
-                intTestNumber = ListAppSettings ( intTestNumber );
-                intTestNumber = ListEmbeddedResources ( intTestNumber );
+                if ( RunThisTest ( SelectedTest.AppSettingsList , args ) )
+                {
+                    intTestNumber = ListAppSettings ( intTestNumber );
+                }   // if ( RunThisTest ( SelectedTest.AppSettingsList , args ) )
 
-                for ( int intUseCaseIndex = ArrayInfo.ARRAY_FIRST_ELEMENT ;
+                if ( RunThisTest ( SelectedTest.StringResourceList , args ) )
+                {
+                    intTestNumber = ListEmbeddedResources ( intTestNumber );
+                }   // if ( RunThisTest ( SelectedTest.StringResourceList , args ) )
+
+                if ( RunThisTest ( SelectedTest.TransformJSONString , args ) )
+                {
+                    for ( int intUseCaseIndex = ArrayInfo.ARRAY_FIRST_ELEMENT ;
                           intUseCaseIndex < s_aDeserializationUseCases.Length ;
                           intUseCaseIndex++ )
+                    {
+                        try
+                        {
+                            JSONDeserializationUseCase deserializationUseCase = s_aDeserializationUseCases [ intUseCaseIndex ];
+                            intTestNumber = PerformJSONTransofmration (
+                                intTestNumber ,                                             // int    pintTestNumber                OK
+                                deserializationUseCase.ConvertLineEndings ,                 // bool   pfConvertLineEndings          OK
+                                deserializationUseCase.TestReportLabel ,                    // string pstrTestReportLabel           OK
+                                deserializationUseCase.RESTResponseFileName ,               // string pstrRESTResponseFileName      OK
+                                deserializationUseCase.IntermediateFileName ,               // string pstrIntermediateFileName      OK
+                                deserializationUseCase.FinalOutputFileName ,                // string pstrFinalOutputFileName       OK
+                                deserializationUseCase.ResponseObjectFileName );            // string pstrResponseObjectFileName    OK
+                        }
+                        catch ( Exception exAll )
+                        {
+                            s_smThisApp.BaseStateManager.AppExceptionLogger.ReportException ( exAll );
+                        }
+                    }   // for ( int intUseCaseIndex = ArrayInfo.ARRAY_FIRST_ELEMENT ; intUseCaseIndex < s_aDeserializationUseCases.Length ; intUseCaseIndex++ )
+                }   // if ( RunThisTest ( SelectedTest.TransformJSONString , args ) )
+            }
+            catch ( InvalidOperationException exInvOp )
+            {
+                if ( exInvOp.Message == Properties.Resources.ERRMSG_CMDARG_IS_INVALID )
                 {
-                    try
-                    {
-                        JSONDeserializationUseCase deserializationUseCase = s_aDeserializationUseCases [ intUseCaseIndex ];
-                        intTestNumber = PerformJSONTransofmration (
-                            intTestNumber ,                                             // int    pintTestNumber
-                            deserializationUseCase.ConvertLineEndings ,                 // bool   pfConvertLineEndings
-                            deserializationUseCase.TestReportLabel ,                    // string pstrTestReportLabel
-                            deserializationUseCase.RESTResponseFileName ,               // string pstrRESTResponseFileName
-                            deserializationUseCase.IntermediateFileName ,               // string pstrIntermediateFileName
-                            deserializationUseCase.FinalOutputFileName ,                // string pstrFinalOutputFileName
-                            deserializationUseCase.ResponseObjectFileName );            // string pstrResponseObjectFileName
-                    }
-                    catch ( Exception exAll )
-                    {
-                        s_smThisApp.BaseStateManager.AppExceptionLogger.ReportException ( exAll );
-                    }
-                }   // for ( int intUseCaseIndex = ArrayInfo.ARRAY_FIRST_ELEMENT ; intUseCaseIndex < s_aDeserializationUseCases.Length ; intUseCaseIndex++ )
+                    s_smThisApp.ErrorExit ( MagicNumbers.ERROR_RUNTIME + MagicNumbers.PLUS_ONE );
+                }   // TRUE (anticpated outcome) block, if ( exInvOp.Message == Properties.Resources.ERRMSG_CMDARG_IS_INVALID )
+                else
+                {
+                    s_smThisApp.BaseStateManager.AppExceptionLogger.ReportException ( exInvOp );
+                    s_smThisApp.ErrorExit ( MagicNumbers.ERROR_RUNTIME );
+                }   // FALSE (unanticpated outcome) block, if ( exInvOp.Message == Properties.Resources.ERRMSG_CMDARG_IS_INVALID )
             }
             catch ( Exception exAll )
             {
@@ -137,6 +182,21 @@ namespace LineBreakFixupsDemo
         }   // static void Main
 
 
+        /// <summary>
+        /// When called by the main routine, this routine generates two lists of
+        /// the application settings defined in the application configuration
+        /// file associated with the entry assembly. The first list is displayed
+        /// on the console, while the second is written into a file as a set of
+        /// tab delimited list of records.
+        /// </summary>
+        /// <param name="pintTestNumber">
+        /// The sequential test number is passed into this routine, which
+        /// increments it, and returns the new value.
+        /// </param>
+        /// <returns>
+        /// The return value is <paramref name="pintTestNumber"/> incremented by
+        /// one.
+        /// </returns>
         private static int ListAppSettings ( int pintTestNumber )
         {
             Utl.BeginTest (
@@ -235,11 +295,25 @@ namespace LineBreakFixupsDemo
         }   // private static int ListAppSettings
 
 
-        private static int ListEmbeddedResources ( int intTestNumber )
+        /// <summary>
+        /// When called by the main routine, this routine generates two lists of
+        /// the string resources embedded in the executing assembly. The first
+        /// list is displayed on the console, while the second is written into a
+        /// file as a set of tab delimited list of records.
+        /// </summary>
+        /// <param name="pintTestNumber">
+        /// The sequential test number is passed into this routine, which
+        /// increments it, and returns the new value.
+        /// </param>
+        /// <returns>
+        /// The return value is <paramref name="pintTestNumber"/> incremented by
+        /// one.
+        /// </returns>
+        private static int ListEmbeddedResources ( int pintTestNumber )
         {
             Utl.BeginTest (
                 Properties.Resources.MSG_TEST_3_PROLOGUE ,
-                ref intTestNumber );
+                ref pintTestNumber );
             string strAppSettingsReportFileName = Utl.AssembleAbsoluteFileName (
                 Properties.Settings.Default.EMBEDDED_RESOURCES_REPORT_FILENAME );
 
@@ -261,8 +335,8 @@ namespace LineBreakFixupsDemo
                     false ) );                                                  // bool   pfSuffixWithNewline = true
             s_smThisApp.BaseStateManager.AppReturnCode = Utl.TestDone (
                 MagicNumbers.ERROR_SUCCESS ,
-                intTestNumber );
-            return intTestNumber;
+                pintTestNumber );
+            return pintTestNumber;
         }   // private static int ListEmbeddedResources
 
 
@@ -374,7 +448,7 @@ namespace LineBreakFixupsDemo
             //  ------------------------------------------------------------
 
             Utl.ConsumeResponse (
-                Properties.Settings.Default.JSON_CONTENTS_REPORT_FILE_NAME_WINDOWS_RAW ,
+                pstrResponseObjectFileName ,
                 Newtonsoft.Json.JsonConvert.DeserializeObject<TimeSeriesDailyResponse> (
                     strFixedUp_Pass_2 ) );
 
@@ -383,5 +457,55 @@ namespace LineBreakFixupsDemo
                 pintTestNumber );
             return pintTestNumber;
         }   // private static int PerformJSONTransofmration
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="penmSelectedTest">
+        /// This member of the SelectedTest enumeration identifies the test that
+        /// is up for consideration.
+        /// </param>
+        /// <param name="pastrCmdArgs">
+        /// The command line argument list is an array of zero or more strings,
+        /// each of which is a command line argument.
+        /// </param>
+        /// <returns>
+        /// The return value is TRUE when <paramref name="penmSelectedTest"/>
+        /// is the first, or only, command line argument, or when no command
+        /// line arguments were given. Otherwise, a message is displayed on the
+        /// console, and the return value is FALSE.
+        /// </returns>
+        private static bool RunThisTest (
+            SelectedTest penmSelectedTest ,
+            string [ ] pastrCmdArgs )
+        {
+            if ( pastrCmdArgs.Length == ArrayInfo.ARRAY_IS_EMPTY )
+            {
+                return true;
+            }   // TRUE (No arguments were given on the command line, the degenerate case.) block, if ( pastrCmdArgs.Length == ArrayInfo.ARRAY_IS_EMPTY )
+            else
+            {
+                try
+                {
+                    SelectedTest selected = pastrCmdArgs [ ArrayInfo.ARRAY_FIRST_ELEMENT ].EnumFromString<SelectedTest> ( );
+                    return penmSelectedTest == selected;
+                }
+                catch ( InvalidOperationException )
+                {
+                    string strMsgTpl = Properties.Resources.ERRMSG_CMDARG_IS_INVALID;
+                    WizardWrx.ConsoleStreams.ErrorMessagesInColor.RGBWriteLine (
+                        s_smThisApp.BaseStateManager.AppExceptionLogger.ErrorMessageColors.MessageForegroundColor ,
+                        s_smThisApp.BaseStateManager.AppExceptionLogger.ErrorMessageColors.MessageBackgroundColor ,
+                        strMsgTpl ,
+                        pastrCmdArgs [ ArrayInfo.ARRAY_FIRST_ELEMENT ].QuoteString ( ) );
+                    throw new InvalidOperationException ( strMsgTpl );
+                }
+                catch ( Exception exAllOthers )
+                {
+                    throw exAllOthers;
+                }
+            }   // FALSE (At least one argument was given on the command line.) block, if ( pastrCmdArgs.Length == ArrayInfo.ARRAY_IS_EMPTY )
+        }   // private static bool RunThisTest
     }   // class Program
 }   // partial namespace LineBreakFixupsDemo

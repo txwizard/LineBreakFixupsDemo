@@ -61,6 +61,15 @@ namespace LineBreakFixupsDemo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ABORTING: Command line argument {0} is invalid..
+        /// </summary>
+        internal static string ERRMSG_CMDARG_IS_INVALID {
+            get {
+                return ResourceManager.GetString("ERRMSG_CMDARG_IS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The label row of internal resource {0} is invalid.{3}    Expected value = {1}{3}    Actual value   = {2}.
         /// </summary>
         internal static string ERRMSG_CORRUPTED_EMBBEDDED_RESOURCE_LABEL {
@@ -223,7 +232,7 @@ namespace LineBreakFixupsDemo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sort and List Application Settings.
+        ///   Looks up a localized string similar to Program (method ListAppSettings, which sorts and lists the application settings).
         /// </summary>
         internal static string MSG_TEST_2_PROLOGUE {
             get {
@@ -232,7 +241,7 @@ namespace LineBreakFixupsDemo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sort and List Embedded Resources.
+        ///   Looks up a localized string similar to Program (method ListEmbeddedResources, which sorts and lists embedded string resources).
         /// </summary>
         internal static string MSG_TEST_3_PROLOGUE {
             get {
@@ -241,7 +250,7 @@ namespace LineBreakFixupsDemo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JSON Fixups from Raw Windows Input.
+        ///   Looks up a localized string similar to JSON Fixups from Transformed Windows Input.
         /// </summary>
         internal static string MSG_TEST_4_PROLOGUE {
             get {
@@ -250,7 +259,7 @@ namespace LineBreakFixupsDemo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JSON Fixups from Transformed Windows Input.
+        ///   Looks up a localized string similar to JSON Fixups from Raw Windows Input.
         /// </summary>
         internal static string MSG_TEST_5_PROLOGUE {
             get {

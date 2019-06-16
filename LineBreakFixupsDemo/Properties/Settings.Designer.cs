@@ -124,7 +124,7 @@ namespace LineBreakFixupsDemo.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("strResponse_Contents_Windows_LineBreaks_Transformed.TXT")]
+        [global::System.Configuration.DefaultSettingValueAttribute("strResponse_Intermediate_Windows_LineBreaks_Transformed.TXT")]
         public string JSON_INTERMEDIATE_FILE_NAME_WINDOWS_TRANSFORMED {
             get {
                 return ((string)(this["JSON_INTERMEDIATE_FILE_NAME_WINDOWS_TRANSFORMED"]));
